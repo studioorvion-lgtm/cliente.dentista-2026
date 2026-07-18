@@ -62,7 +62,7 @@ export default function Technology() {
                         {item.description}
                       </p>
                       {item.image && (
-                        <div className="mt-8 rounded-xl overflow-hidden aspect-video border border-white/[0.04]">
+                        <div className="mt-8 rounded-xl overflow-hidden aspect-[4/3] border border-white/[0.04]">
                           <img
                             src={item.image}
                             alt={item.title}

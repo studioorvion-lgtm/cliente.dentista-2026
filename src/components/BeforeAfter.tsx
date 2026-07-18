@@ -59,7 +59,7 @@ export default function BeforeAfter() {
               if (e.key === "ArrowLeft") setPos(p => Math.max(0, p - 2));
               if (e.key === "ArrowRight") setPos(p => Math.min(100, p + 2));
             }}
-            className="relative aspect-[16/9] sm:aspect-[21/9] rounded-xl sm:rounded-2xl overflow-hidden cursor-col-resize select-none border border-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/40"
+            className="relative aspect-[4/3] sm:aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden cursor-col-resize select-none border border-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/40"
           >
             {/* After */}
             <img 

@@ -30,7 +30,7 @@ export default function About() {
             className="lg:col-span-5 relative"
           >
             {/* Main image */}
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] gold-glow">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] lg:aspect-square gold-glow">
               <motion.img
                 style={{ y: imgY }}
                 src={MAIN_IMG}

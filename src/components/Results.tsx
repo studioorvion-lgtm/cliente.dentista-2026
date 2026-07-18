@@ -19,7 +19,7 @@ export default function Results() {
           description="Cada sorriso é único. Cada resultado, uma obra de precisão, arte e tecnologia combinadas."
         />
 
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 auto-rows-[170px] sm:auto-rows-[210px] gap-3">
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 auto-rows-[240px] sm:auto-rows-[300px] gap-3">
           {galleryImages.map((img, i) => (
             <motion.figure
               key={i}
