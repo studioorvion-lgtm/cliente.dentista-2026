@@ -2,8 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { techItems } from "@/lib/data";
 import SectionHeading from "./SectionHeading";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { EASE as ease } from "@/lib/config";
 
 export default function Technology() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,7 +65,7 @@ export default function Technology() {
                           <img
                             src={item.image}
                             alt={item.title}
-                            loading="lazy"
+                            loading={i === 0 ? "eager" : "lazy"}
                             decoding="async"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           />

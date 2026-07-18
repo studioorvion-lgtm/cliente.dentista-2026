@@ -1,11 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Star, ArrowRight, ChevronDown } from "lucide-react";
-
-const VIDEO_URL =
-  "https://media.base44.com/videos/public/user_6a58ea6dd6dede36eda97a7c/e25766e8e_Luxury_dental_clinic_futuristic__202607181042.mp4";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { HERO_VIDEO_URL, EASE as ease } from "@/lib/config";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -25,7 +21,7 @@ export default function Hero() {
           aria-label="Clínica odontológica premium"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src={VIDEO_URL} type="video/mp4" />
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
         <AnimatePresence>
           {!videoReady && (

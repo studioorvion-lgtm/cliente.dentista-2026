@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { testimonials } from "@/lib/data";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { EASE as ease } from "@/lib/config";
 
 export default function Testimonials() {
   return (

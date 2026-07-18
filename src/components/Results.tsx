@@ -2,8 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { galleryImages } from "@/lib/data";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { EASE as ease } from "@/lib/config";
 
 export default function Results() {
   const [hovered, setHovered] = useState<number | null>(null);

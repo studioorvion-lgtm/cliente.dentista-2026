@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CalendarCheck } from "lucide-react";
+import { EASE as ease } from "@/lib/config";
 
 const BG_IMG = "/media/reception_luxury.jpg";
-const ease = [0.25, 1, 0.5, 1] as const;
 
 const perks = [
   "Avaliação 100% gratuita",

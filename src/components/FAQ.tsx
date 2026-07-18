@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { faqs } from "@/lib/data";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { EASE as ease } from "@/lib/config";
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
@@ -54,8 +53,10 @@ export default function FAQ() {
                   }`}
                 >
                   <button
+                    id={`faq-btn-${i}`}
                     onClick={() => setOpen(isOpen ? null : i)}
                     aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${i}`}
                     className="w-full flex items-center gap-5 py-5 text-left group"
                   >
                     <span className={`flex-1 text-[14px] sm:text-[15px] font-medium leading-snug transition-colors duration-200 ${
@@ -86,6 +87,9 @@ export default function FAQ() {
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
+                        id={`faq-panel-${i}`}
+                        role="region"
+                        aria-labelledby={`faq-btn-${i}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

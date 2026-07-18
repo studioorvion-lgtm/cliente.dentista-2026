@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { navLinks } from "@/lib/data";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { EASE as ease } from "@/lib/config";
 
 const socials = [
   { Icon: Instagram, label: "Instagram", href: "#" },
