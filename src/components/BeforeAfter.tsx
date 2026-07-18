@@ -81,7 +81,7 @@ export default function BeforeAfter() {
                 alt="Antes do tratamento" 
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 w-full h-full object-cover grayscale contrast-[0.85]" 
+                className="absolute inset-0 w-full h-full object-cover" 
                 draggable={false} 
               />
             </div>
