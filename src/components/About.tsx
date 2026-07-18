@@ -3,8 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Scan, Award, Users, Star } from "lucide-react";
 import { aboutStats } from "@/lib/data";
 
-const MAIN_IMG = "/images/clinic.jpg";
-const PORTRAIT_IMG = "/images/treating.jpg";
+const MAIN_IMG = "/media/clinic.jpg";
+const PORTRAIT_IMG = "/media/treating.jpg";
 const ease = [0.25, 1, 0.5, 1] as const;
 const statIcons = [Award, Users, Star];
 

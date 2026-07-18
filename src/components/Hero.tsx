@@ -134,7 +134,7 @@ export default function Hero() {
           >
             <div className="rounded-xl overflow-hidden aspect-[4/3] mb-3 relative">
               <img
-                src="/images/clinic.jpg"
+                src="/media/clinic.jpg"
                 alt="Clínica odontológica futurista"
                 className="w-full h-full object-cover"
               />

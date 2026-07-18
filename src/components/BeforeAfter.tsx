@@ -2,8 +2,8 @@ import { useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 
-const BEFORE = "/images/before.webp";
-const AFTER = "/images/after.webp";
+const BEFORE = "/media/before.webp";
+const AFTER = "/media/after.webp";
 const ease = [0.25, 1, 0.5, 1] as const;
 
 export default function BeforeAfter() {

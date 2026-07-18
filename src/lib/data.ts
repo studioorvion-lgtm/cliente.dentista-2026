@@ -95,42 +95,42 @@ export const techItems: TechItem[] = [
     title: "Scanner 3D",
     description:
       "Mapeamento intraoral ultrarrápido em alta resolução, dispensando o desconforto das moldagens tradicionais.",
-    image: "/images/scanner.jpg",
+    image: "/media/scanner.jpg",
   },
   {
     icon: Monitor,
     title: "Planejamento Digital",
     description:
       "Arquitetura completa do sorriso projetada em software tridimensional antes de qualquer intervenção clínica.",
-    image: "/images/smile_planning.jpg",
+    image: "/media/smile_planning.jpg",
   },
   {
     icon: Camera,
     title: "Radiografia Digital",
     description:
       "Diagnóstico profundo com radiação reduzida a níveis mínimos, assegurando segurança e precisão cirúrgica.",
-    image: "/images/digital_scanner.jpg",
+    image: "/media/digital_scanner.jpg",
   },
   {
     icon: Cpu,
     title: "Robótica CAD/CAM",
     description:
       "Escultura de restaurações cerâmicas no mesmo dia, aliando altíssima resistência a um refinamento estético sem igual.",
-    image: "/images/implant.jpg",
+    image: "/media/implant.jpg",
   },
   {
     icon: Brain,
     title: "Inteligência Artificial",
     description:
       "Análise preditiva de imagens e algoritmos dedicados a elevar o grau de previsibilidade e sucesso a longo prazo.",
-    image: "/images/treating.jpg",
+    image: "/media/treating.jpg",
   },
   {
     icon: Sparkles,
     title: "Ecossistema Digital",
     description:
       "Integração de dados ponta a ponta. Menos margem para erros, processos mais enxutos e resultados extraordinários.",
-    image: "/images/clinic.jpg",
+    image: "/media/clinic.jpg",
   },
 ];
 
@@ -201,29 +201,29 @@ export const processSteps: ProcessStep[] = [
 
 export const galleryImages: GalleryImage[] = [
   {
-    src: "/images/smile.jpg",
+    src: "/media/smile.jpg",
     alt: "Beautiful smile",
     span: "sm:col-span-2 sm:row-span-2",
   },
   {
-    src: "/images/veneers.jpg",
+    src: "/media/veneers.jpg",
     alt: "Dental veneers",
   },
   {
-    src: "/images/implant.jpg",
+    src: "/media/implant.jpg",
     alt: "Implant treatment",
   },
   {
-    src: "/images/scanner.jpg",
+    src: "/media/scanner.jpg",
     alt: "Digital scanner",
     span: "sm:col-span-2",
   },
   {
-    src: "/images/treating.jpg",
+    src: "/media/treating.jpg",
     alt: "Premium dental consultation",
   },
   {
-    src: "/images/clinic.jpg",
+    src: "/media/clinic.jpg",
     alt: "Premium dental clinic",
   },
 ];
@@ -233,7 +233,7 @@ export const testimonials: Testimonial[] = [
     name: "Mariana Albuquerque",
     role: "Executiva",
     text: "A abordagem é diferente de tudo que já vi. A precisão do planejamento digital me deu uma tranquilidade absoluta, e o resultado final é de uma naturalidade ímpar.",
-    image: "/images/dentist_portrait.jpg",
+    image: "/media/dentist_portrait.jpg",
   },
   {
     name: "Ricardo Mendes",
