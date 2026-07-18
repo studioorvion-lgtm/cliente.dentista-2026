@@ -120,32 +120,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Floating image card */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 1.6, ease }}
-          className="absolute right-6 lg:right-10 bottom-28 hidden lg:block"
-        >
-          <motion.div
-            animate={{ y: [0, -7, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-strong rounded-2xl p-2 w-[220px] border border-white/[0.08]"
-          >
-            <div className="rounded-xl overflow-hidden aspect-[4/3] mb-3 relative">
-              <img
-                src="/media/clinic.jpg"
-                alt="Clínica odontológica futurista"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 to-transparent" />
-            </div>
-            <div className="px-2 pb-1 text-center">
-              <div className="text-[12px] font-medium text-white/90">Ambiente Premium</div>
-              <div className="text-[10px] text-neutral-500 mt-0.5">Odontologia do futuro, hoje.</div>
-            </div>
-          </motion.div>
-        </motion.div>
       </motion.div>
 
       {/* Scroll cue */}

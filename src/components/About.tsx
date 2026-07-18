@@ -41,41 +41,6 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-obsidian/50 via-transparent to-transparent" />
             </div>
 
-            {/* Portrait card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3, ease }}
-              className="absolute -bottom-6 -right-3 sm:-right-8 w-36 sm:w-44 rounded-xl overflow-hidden glass-strong shadow-2xl"
-            >
-              <img
-                src={PORTRAIT_IMG}
-                alt="Sorriso do paciente após tratamento"
-                loading="lazy"
-                decoding="async"
-                className="w-full aspect-[3/4] object-cover object-top"
-              />
-            </motion.div>
-
-            {/* Scanner badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.45, ease }}
-              className="absolute -top-4 -right-2 sm:-right-6 glass-strong rounded-xl p-3.5 sm:p-4 border border-white/[0.07]"
-            >
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-gold/12 flex items-center justify-center flex-shrink-0">
-                  <Scan className="w-4 h-4 text-gold" />
-                </div>
-                <div>
-                  <div className="text-[12px] font-medium text-white">Scanner 3D</div>
-                  <div className="text-[10px] text-neutral-600 mt-0.5">Intraoral Digital</div>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Text */}
