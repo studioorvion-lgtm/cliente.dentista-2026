@@ -239,26 +239,31 @@ export const testimonials: Testimonial[] = [
     name: "Ricardo Mendes",
     role: "Empresário",
     text: "Fiz a reabilitação completa em tempo recorde graças ao fluxo digital. Ambiente sofisticado, equipe impecável. Um serviço verdadeiramente de alto nível.",
+    image: "/media/ricardo.jpg",
   },
   {
     name: "Carolina Ferreira",
     role: "Arquiteta",
     text: "O cuidado com os mínimos detalhes impressiona. As lentes de contato redesenharam meu sorriso e elevaram minha autoconfiança de forma que eu não imaginava ser possível.",
+    image: "/media/carolina.jpg",
   },
   {
     name: "Felipe Andrade",
     role: "Diretor de Arte",
     text: "Desde a recepção até a cadeira do dentista, a experiência é irretocável. Os alinhadores invisíveis corrigiram meu sorriso sem impactar minha rotina.",
+    image: "/media/felipe.jpg",
   },
   {
     name: "Beatriz Costa",
     role: "Médica",
     text: "Busquei a clínica pela tecnologia, mas o que me fidelizou foi a empatia da equipe. O resultado ficou harmônico e superou amplamente as minhas expectativas.",
+    image: "/media/beatriz.jpg",
   },
   {
     name: "Gustavo Lima",
     role: "Advogado",
     text: "Eficiência e luxo. Em poucas sessões saí com um sorriso que mudou a minha comunicação não-verbal. Uma odontologia que entrega rigorosamente o que promete.",
+    image: "/media/gustavo.jpg",
   },
 ];
 

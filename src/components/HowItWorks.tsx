@@ -2,8 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { processSteps } from "@/lib/data";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { EASE as ease } from "@/lib/config";
 
 export default function HowItWorks() {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,11 +23,11 @@ export default function HowItWorks() {
 
         <div ref={ref} className="mt-20 relative">
           {/* Connecting line desktop */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px hidden lg:block overflow-hidden">
+          <div className="absolute inset-x-0 top-[26px] h-px hidden lg:block overflow-hidden">
             <div className="absolute inset-0 bg-white/[0.03]" />
             <motion.div
               style={{ width: lineProgress }}
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold/30 to-transparent"
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"
             />
           </div>
 
@@ -49,11 +48,34 @@ export default function HowItWorks() {
                   </span>
                 </div>
 
-                {/* Node dot */}
-                <div className="w-2 h-2 rounded-full bg-white/[0.08] group-hover:bg-gold/60 transition-colors duration-400 mb-6 lg:mb-8 z-10" />
+                {/* Node dot — illuminates when the line reaches it */}
+                <motion.div
+                  initial={{ scale: 0.6, opacity: 0.3 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.12 + 0.3, type: "spring", stiffness: 280 }}
+                  className="w-3 h-3 rounded-full mb-6 lg:mb-8 z-10 relative"
+                  style={{
+                    background: "radial-gradient(circle, rgba(197,160,89,0.9) 0%, rgba(197,160,89,0.4) 100%)",
+                    boxShadow: "0 0 0 3px rgba(197,160,89,0.08), 0 0 12px rgba(197,160,89,0.25)",
+                  }}
+                >
+                  {/* Ripple on active node */}
+                  <motion.span
+                    className="absolute inset-0 rounded-full"
+                    animate={{ scale: [1, 2.2, 1], opacity: [0.4, 0, 0.4] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.4, ease: "easeInOut" }}
+                    style={{ background: "rgba(197,160,89,0.3)" }}
+                  />
+                </motion.div>
+
+                {/* Step number badge */}
+                <span className="absolute top-0 text-[9px] font-mono text-gold/30 tracking-widest">
+                  {step.number}
+                </span>
 
                 <div className="relative z-10">
-                  <h3 className="text-[15px] font-medium text-white mb-2 group-hover:text-white/90">
+                  <h3 className="text-[15px] font-medium text-white mb-2 group-hover:text-gold/90 transition-colors duration-300">
                     {step.title}
                   </h3>
                   <p className="text-[13px] text-neutral-500 leading-[1.65] max-w-[180px] font-light">

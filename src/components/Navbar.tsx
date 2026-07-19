@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { navLinks } from "@/lib/data";
-
-const ease = [0.25, 1, 0.5, 1] as const;
+import { EASE as ease } from "@/lib/config";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
+
+  const { scrollYProgress } = useScroll();
+  const progressOpacity = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
@@ -52,7 +54,11 @@ export default function Navbar() {
           <a href="#inicio" className="flex items-center gap-2.5 group" aria-label="Ir para o início">
             <div className="relative w-8 h-8 flex items-center justify-center flex-shrink-0">
               <div className="absolute inset-0 rounded-full border border-gold/40 group-hover:border-gold/70 transition-colors duration-300" />
-              <div className="w-1.5 h-1.5 rounded-full bg-gold" />
+              <motion.div
+                className="w-1.5 h-1.5 rounded-full bg-gold"
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
             </div>
             <span className="text-[11px] font-medium tracking-[0.28em] uppercase text-white/70 group-hover:text-white/90 transition-colors duration-300">
               Clínica Premium
@@ -98,6 +104,19 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+
+        {/* Scroll progress bar — appears after first scroll */}
+        <motion.div
+          aria-hidden="true"
+          style={{
+            scaleX: scrollYProgress,
+            opacity: progressOpacity,
+            transformOrigin: "left center",
+            background: "linear-gradient(90deg, rgba(197,160,89,0.7) 0%, rgba(197,160,89,0.25) 60%, transparent 100%)",
+          }}
+          className="absolute bottom-0 inset-x-0 h-[1.5px]"
+        />
+
       </motion.header>
 
       {/* Mobile overlay */}

@@ -22,10 +22,10 @@ export default function Results() {
           {galleryImages.map((img, i) => (
             <motion.figure
               key={i}
-              initial={{ opacity: 0, scale: 0.97 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.6, delay: i * 0.08, ease }}
+              transition={{ duration: 0.7, delay: Math.pow(i, 0.65) * 0.09, ease }}
               onHoverStart={() => setHovered(i)}
               onHoverEnd={() => setHovered(null)}
               className={`group relative rounded-xl sm:rounded-2xl overflow-hidden ${img.span ?? ""}`}
@@ -37,17 +37,37 @@ export default function Results() {
                 alt={img.alt}
                 loading="lazy"
                 decoding="async"
-                animate={{ scale: hovered === i ? 1.06 : 1 }}
-                transition={{ duration: 0.6, ease }}
+                animate={{ scale: hovered === i ? 1.07 : 1 }}
+                transition={{ duration: 0.7, ease }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-transparent to-transparent" />
+
+              {/* Base gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
+
+              {/* Caption slide-up reveal */}
+              <motion.div
+                className="absolute inset-x-0 bottom-0 p-4 overflow-hidden"
+                initial={false}
+              >
+                <motion.p
+                  className="text-[12px] text-white/80 font-light leading-snug"
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={hovered === i ? { y: 0, opacity: 1 } : { y: "110%", opacity: 0 }}
+                  transition={{ duration: 0.38, ease }}
+                >
+                  {img.alt}
+                </motion.p>
+              </motion.div>
+
+              {/* Ring */}
               <div className={`absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset transition-all duration-400 ${
-                hovered === i ? "ring-gold/30" : "ring-white/[0.04]"
+                hovered === i ? "ring-gold/25" : "ring-white/[0.04]"
               }`} />
             </motion.figure>
           ))}
         </div>
+
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

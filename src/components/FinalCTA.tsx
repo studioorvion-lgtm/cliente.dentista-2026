@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CalendarCheck } from "lucide-react";
 import { EASE as ease } from "@/lib/config";
+import RevealText from "./ui/RevealText";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 const BG_IMG = "/media/reception_luxury.jpg";
 
@@ -16,6 +18,9 @@ export default function FinalCTA() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  
+  const ctaMagnetic = useMagnetic(0.25);
+  const ghostMagnetic = useMagnetic(0.25);
 
   return (
     <section ref={ref} className="relative py-24 sm:py-32 lg:py-44 overflow-hidden">
@@ -55,33 +60,40 @@ export default function FinalCTA() {
             </span>
           </div>
 
-          {/* Headline */}
-          <h2 className="text-[clamp(2.5rem,5.5vw,5rem)] font-medium text-white leading-[1.03] tracking-[-0.04em] text-balance">
-            Seu Novo Sorriso{" "}
-            <span className="font-serif italic gold-gradient-text">Começa Hoje.</span>
-          </h2>
+          {/* Headline with cinematic reveal */}
+          <RevealText 
+            as="h2" 
+            delay={0.15}
+            className="text-[clamp(2.5rem,5.5vw,5rem)] font-medium text-white leading-[1.03] tracking-[-0.04em] text-balance"
+          >
+            Seu Novo Sorriso Começa Hoje.
+          </RevealText>
 
           <p className="mt-6 text-[15px] text-neutral-500 leading-[1.8] max-w-md mx-auto font-light">
             Agende sua avaliação e descubra como a tecnologia de ponta pode transformar
             a sua saúde, estética e confiança.
           </p>
 
-          {/* CTAs */}
+          {/* CTAs with magnetic physics */}
           <div className="mt-10 flex flex-wrap gap-3 justify-center">
             <motion.a
+              ref={ctaMagnetic.ref as React.RefObject<HTMLAnchorElement>}
               href="#contato"
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              style={{ x: ctaMagnetic.x, y: ctaMagnetic.y }}
               className="btn-gold group"
             >
               <CalendarCheck className="w-4 h-4" aria-hidden="true" />
               Agendar Consulta Gratuita
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
             </motion.a>
-            <a href="tel:+5511000000000" className="btn-ghost">
+            <motion.a 
+              ref={ghostMagnetic.ref as React.RefObject<HTMLAnchorElement>}
+              style={{ x: ghostMagnetic.x, y: ghostMagnetic.y }}
+              href="tel:+5511000000000" 
+              className="btn-ghost"
+            >
               Ligar agora
-            </a>
+            </motion.a>
           </div>
 
           {/* Perks */}
